@@ -1,0 +1,55 @@
+# OS generated files
+.DS_Store
+*.icloud
+
+# Temporary and binary files
+*~
+*.py[cod]
+*.so
+*.cfg
+!setup.cfg
+!.isort.cfg
+*.orig
+*.log
+*.pot
+__pycache__/*
+.cache/*
+.*.swp
+*/.ipynb_checkpoints/*
+
+# Package files
+*.egg
+*.eggs/
+.installed.cfg
+*.egg-info
+
+# Build and docs folder/files
+build/*
+dist/*
+sdist/*
+docs/api/*
+docs/_build/*
+cover/*
+MANIFEST
+
+# python related
+.python-version
+venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# pytest cache
+.cache/
+.pytest_cache/
+
+# Unittest and coverage
+htmlcov/*
+.coverage
+.tox
+junit.xml
+coverage.xml
+
+# IDE
+.vscode/
+
+secrets/
