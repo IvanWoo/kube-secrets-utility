@@ -1,3 +1,5 @@
+from functools import partial
+
 import click
 
 from kube_secrets_utility.config import LOG_LEVEL
@@ -5,6 +7,8 @@ from kube_secrets_utility.log import get_logger
 from kube_secrets_utility.utils import dump_many_by_type, dump_one, is_exist
 
 logger = get_logger(__name__, LOG_LEVEL)
+# https://github.com/pallets/click/issues/646#issuecomment-435317967
+click.option = partial(click.option, show_default=True)
 
 
 @click.command()
@@ -24,12 +28,10 @@ def main(
     path,
 ):
     """
+    \b
     kube-secrets-utility: ksu
-
     Examples:
-
       - ksu -n azure -ns demo -p secrets/demo
-
       - ksu -t Opaque -ns demo -p secrets/demo
     """
     if not is_exist(path):

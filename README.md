@@ -22,11 +22,8 @@ $ ksu --help
 Usage: ksu [OPTIONS]
 
   kube-secrets-utility: ksu
-
   Examples:
-
     - ksu -n azure -ns demo -p secrets/demo
-
     - ksu -t Opaque -ns demo -p secrets/demo
 
 Options:
@@ -34,7 +31,7 @@ Options:
   -t, --type TEXT        The type of secrets you want to manipulate. When name
                          is provided, type will be ignored
 
-  -ns, --namespace TEXT  Kubernetes namespace.
+  -ns, --namespace TEXT  Kubernetes namespace.  [default: default]
   -p, --path TEXT        Local path where to store dumped yaml.
   --version              Show the version and exit.
   --help                 Show this message and exit.
