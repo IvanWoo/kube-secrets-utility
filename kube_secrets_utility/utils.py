@@ -36,7 +36,7 @@ def clean(secret):
 
 def translate(secret):
     """
-    decode base64 `data` and safe it to `stringData` field
+    decode base64 `data` and save it to `stringData` field
     """
     string_data = decode(secret)
     secret["stringData"] = string_data
