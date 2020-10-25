@@ -44,9 +44,19 @@ def translate(secret):
     return secret
 
 
-def is_exist(entry_path):
-    ep = Path(entry_path)
-    return ep.exists()
+def is_exist(path):
+    p = Path(path)
+    return p.exists()
+
+
+def is_file(path):
+    p = Path(path)
+    return p.is_file()
+
+
+def is_dir(path):
+    p = Path(path)
+    return p.is_dir()
 
 
 def save(content, file):
@@ -95,3 +105,30 @@ def dump_many_by_type(type, namespace, path):
     file = f"{path}/{type.replace('/', '-')}-{namespace}.yaml"
     save(secrets, file)
     return
+
+
+def delete(namespace, path):
+    res = run(f"kubectl delete -n {namespace} -f {path}")
+    if res.stderr:
+        logger.warning(res.stderr)
+        return
+    logger.info(res.stdout)
+    return
+
+
+def apply(namespace, path):
+    res = run(f"kubectl apply -n {namespace} -f {path}")
+    if res.stderr:
+        logger.warning(res.stderr)
+        return
+    logger.info(res.stdout)
+    return
+
+
+def update_one(namespace, path):
+    delete(namespace, path)
+    apply(namespace, path)
+    return
+
+
+update_many = update_one
