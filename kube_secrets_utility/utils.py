@@ -5,10 +5,9 @@ from pathlib import Path
 
 import yaml
 
-from kube_secrets_utility.config import LOG_LEVEL
 from kube_secrets_utility.log import get_logger
 
-logger = get_logger(__name__, LOG_LEVEL)
+logger = get_logger(__name__)
 
 
 def run(cmd):

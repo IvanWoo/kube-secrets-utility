@@ -2,7 +2,6 @@ from functools import partial
 
 import click
 
-from kube_secrets_utility.config import LOG_LEVEL
 from kube_secrets_utility.log import get_logger
 from kube_secrets_utility.utils import (
     dump_many_by_type,
@@ -14,7 +13,7 @@ from kube_secrets_utility.utils import (
     update_one,
 )
 
-logger = get_logger(__name__, LOG_LEVEL)
+logger = get_logger(__name__)
 # https://github.com/pallets/click/issues/646#issuecomment-435317967
 click.option = partial(click.option, show_default=True)
 
