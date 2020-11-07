@@ -37,7 +37,9 @@ def cli():
     help="The type of secrets you want to manipulate. When name is provided, type will be ignored",
 )
 @click.option("-ns", "--namespace", default="default", help="Kubernetes namespace.")
-@click.option("-p", "--path", help="Local path where to store dumped yaml.")
+@click.option(
+    "-p", "--path", required=True, help="Local path where to store dumped yaml."
+)
 def dump(
     name,
     type,
@@ -63,7 +65,9 @@ def dump(
 
 @cli.command()
 @click.option("-ns", "--namespace", default="default", help="Kubernetes namespace.")
-@click.option("-p", "--path", help="Local path where to store dumped yaml.")
+@click.option(
+    "-p", "--path", required=True, help="Local path where to store dumped yaml."
+)
 def update(namespace, path):
     """
     \b
