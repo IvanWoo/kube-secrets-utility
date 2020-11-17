@@ -58,8 +58,10 @@ def dump(
         return
     if name:
         dump_one(name, namespace, path)
-    elif namespace:
+    elif type:
         dump_many_by_type(type, namespace, path)
+    else:
+        logger.error("please provide name or type")
     return
 
 
